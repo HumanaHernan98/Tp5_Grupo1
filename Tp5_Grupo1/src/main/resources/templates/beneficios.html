@@ -1,37 +1,18 @@
 <!DOCTYPE html>
-<body>
-<head>
-
+<html xmlns:th="http://thymeleaft.org">
+<head th:insert="/layouts/head::head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-<header>
-<h1> BENEFICIOS  </h1>
- <img alt="imagen1" src="../static/imagen/beneficios.png"
-//colocar imagen del escritorio
+<header th:insert="/layouts/header::header"> </header>
 
-</header>
-<nav>
-	<ul>
-
-		<li><a href = "inicio.html">Inicio</a></li>
-		<li><a href = "agenda.html">Agenda</a></li>
-		<li><a href = "becas.html">Beneficios y Becas</a></li>
-		<li><a href = "contacto.html">Contáctanos</a></li>
-	</ul>
-</nav>
 <section>
 
-<p> Página en construcción.</p>
+<p> PÃ¡gina en construcciÃ³n.</p>
 </section>
-<footer> 
-<p> 2022. Portal de Capacitación  Av. Gral. Pedro 345  TelÃ©fono (388) 4582934 S. S. de Jujuy Republica
-Argentina.</p>
-</footer>
 
+<footer th:insert="/layouts/footer::footer"> </footer>
 
 </body>
-
-
-
 </html>
