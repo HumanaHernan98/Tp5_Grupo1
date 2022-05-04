@@ -1,24 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es" xmlns:th="http://thymeleaft.org">
+<head th:insert="/layouts/head::head">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-<header> 
-<h1></h1>
-<img alt="" src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fvector-gratis%2Fplantilla-diseno-calendario-ano-nuevo-moderno-2022_1017-34368.jpg%3Fw%3D2000&imgrefurl=https%3A%2F%2Fwww.freepik.es%2Ffotos-vectores-gratis%2Fcalendario&tbnid=iyCtBnw9TQQWHM&vet=12ahUKEwj85O-HsrD3AhX8kZUCHTJYCJEQMygAegUIARDbAQ..i&docid=qOvG_euGWFLcwM&w=2000&h=1600&q=imagen%20de%20calendario&ved=2ahUKEwj85O-HsrD3AhX8kZUCHTJYCJEQMygAegUIARDbAQ">
-<nav>
-	<ol>
-	<li><a href="index.html">Inicio</a></li>
-	<li><a href="angenda.html">Agenda</a></li>
-	<li><a href="index.html">Beneficios y Becas</a></li>
-	<li><a href="index.html">Contáctos</a></li>
-	</ol>
+<header th:insert="/layouts/header::header"> </header>
 
-		<section> <p> 
+<img alt="" src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fvector-gratis%2Fplantilla-diseno-calendario-ano-nuevo-moderno-2022_1017-34368.jpg%3Fw%3D2000&imgrefurl=https%3A%2F%2Fwww.freepik.es%2Ffotos-vectores-gratis%2Fcalendario&tbnid=iyCtBnw9TQQWHM&vet=12ahUKEwj85O-HsrD3AhX8kZUCHTJYCJEQMygAegUIARDbAQ..i&docid=qOvG_euGWFLcwM&w=2000&h=1600&q=imagen%20de%20calendario&ved=2ahUKEwj85O-HsrD3AhX8kZUCHTJYCJEQMygAegUIARDbAQ">
+<section>
+	 <p> 
 		Feriados inamovibles 2022 en Argentina:<br>
 1° de enero (Año Nuevo),<br>
 28 de febrero y 1° de marzo (Feriados de Carnaval).<br>
@@ -31,17 +22,17 @@
 9 de julio, <br>
 8 de diciembre,<br>
 25 de diciembre,<br>
-</p> 
+	</p> 
+	
 <!--<video controls="video.mp4" src="\Users\Pc\Documents\PV2022\PV\TP4_Grupo1\src\main\resources\static\video\video.mp4">  </video>
 -->
 <video  height="500" controls>
 <source src="../static/video/video.mp4" type=video/mp4  >
 </video>
 </section>
+
 	
 		
-</nav>
-</header>
-
+<footer th:insert="/layouts/footer::footer"> </footer>
 </body>
 </html>
