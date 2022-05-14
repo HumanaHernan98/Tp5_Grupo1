@@ -9,7 +9,7 @@ a:hover{
     color:blue;
 }
 
-/*los parrafos estan en negro ,centrado,tamaño1vw,altura de cada renglon 200%y la fuente Arial*/
+/*los parrafos estan en negro ,centrado,tamaï¿½o1vw,altura de cada renglon 200%y la fuente Arial*/
 p{
 	
     color:#000000;
@@ -24,7 +24,7 @@ p{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
 }
-/*parrafo en clase color blanco ,centrado ,tamaño 1vw,altura de cada renglon 200%, tipo de letra arial y color de fondo negro*/
+/*parrafo en clase color blanco ,centrado ,tamaï¿½o 1vw,altura de cada renglon 200%, tipo de letra arial y color de fondo negro*/
 .parrafo{
     color:#e1e0e5;
     text-align:center;
