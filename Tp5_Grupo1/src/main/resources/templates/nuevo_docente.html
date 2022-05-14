@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaft.org">
+<head th:insert="/layouts/head::head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form class="row g-2 m-5 justify-content-center">
+		<div class="col-12">
+			<label class="form-label">Legajo</label> <input type="text"
+				class="form-control" id="legajo" placeholder="Ingrese su legajo" />
+		</div>
+
+		<div class="col-12">
+			<label class="form-label">Nombre</label> <input type="text"
+				class="form-control" id="nombre" placeholder="Ingrese su nombre" />
+		</div>
+
+		<div class="col-12">
+			<label class="form-label">Apellido</label> <input type="text"
+				class="form-control" id="apellido" placeholder="Ingrese su apellido" />
+		</div>
+
+		<div class="col-12">
+			<label class="form-label">E-mail</label> <input type="email"
+				class="form-control" id="email" placeholder="@gmail.com" />
+		</div>
+
+		<div class="col-12">
+			<label class="form-label">Telefono</label> <input type="text"
+				class="form-control" id="telefono" placeholder="Ingrese su apellido" />
+		</div>
+
+		<div class="col-4">
+			<button type="submit" class="btn btn-primary">Enviar</button>
+		</div>
+
+		<div class="col-2">
+			<button type="submit" class="btn bg-secondary">Cancelar</button>
+		</div>
+	</form>
+</body>
+</html>
