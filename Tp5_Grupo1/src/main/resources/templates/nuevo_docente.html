@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:insert="/layouts/head::head">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/formulario/guardar}" th:object="${persona}" method="post" class="row g-3" >
+  <div class="col-md-6">
+    <label for="legajo" class="form-label">legajo</label>
+    <input th:field="*{legajo}" type="number" class="form-control" id="legajo" >
+  </div>
+  <div class="col-md-6">
+    <label for="nombre" class="form-label">nombre</label>
+    <input th:field="*{nombre}" type="text" class="form-control" id="nombre" >
+  </div>
+  <div class="col-md-6">
+    <label for="apellido" class="form-label">apellido</label>
+    <input th:field="*{apellido}" type="text" class="form-control" id="apellido" >
+  </div>
+  <div class="col-md-6">
+    <label for="email" class="form-label">Email</label>
+    <input th:field="*{email}" type="email" class="form-control" id="email" >
+  </div>
+  <div class="col-md-6">
+    <label for="telefono" class="form-label">telefono</label>
+    <input th:field="*{telefono}" type="number" class="form-control" id="telefono" >
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">enviar</button>
+  </div>
+</form>
+</body>
+</html>
