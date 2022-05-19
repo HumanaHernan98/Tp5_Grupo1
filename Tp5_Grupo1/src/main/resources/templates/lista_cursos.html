@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org">
+<head th:insert="/layouts/head::head">
+    <meta charset="UTF-8">
+    <title>Tabla </title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+  <body>
+    <div>
+         <section>
+          <h1>Cursos lista</h1>
+          <div class="d-flex justify-content-md-end mb-3">
+             <button type="submit" class="btn btn-primary" >Nuevo</button>
+           </div>
+           
+          <table class="table">      
+            <tbody>
+              <thead>
+                <tr>
+                <th>codigo</th>
+                <th>titulo</th>
+                <th>categoria</th>
+                <th>fecha de inicio</th>
+                <th>fecha de cierre</th>
+                <th>cantidad de horas</th>
+                <th>modalidad</th>
+                <th>docente</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr th:each="curso:${cursos}">
+                <td th:text="${curso.codigo}"></td>
+                <td th:text="${curso.titulo}"> </td>
+                <td th:text="${curso.categoria}"></td>
+                <td th:text="${curso.fechinicio}"></td>
+                <td th:text="${curso.fechafin}"></td>
+                <td th:text="${curso.cantH}"></td>
+                <td th:text="${curso.modalidad}"></td>
+                <td th:text="${curso.docente.apellido}"></td>
+                <td>
+                  <button type="button" class="btn btn-warning">Editar</button>
+                   <button type="button" class="btn btn-danger">Eliminar</button>
+              	</td>
+               </tr> 
+            </tbody>
+          </table>
+      
+         </section>
+       </div>
+  </body>
+</html>

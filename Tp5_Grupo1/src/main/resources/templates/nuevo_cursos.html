@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html xmlns:th="http://thymeleaf.org">
+<head th:insert="/layouts/head::head">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-//codigo_titulo _categoria_fecha inicio_fecha fin _cantidad de horas_modalidad _docente
 
-<form th:action="@{/formulario/guardar}" th:object="${persona}" method="post" class="row g-3" >
+<form th:action="@{/curso/guardar}" th:object="${curso}" method="post" class="row g-3" >
   <div class="col-md-6">
     <label for="codigo" class="form-label">codigo</label>
     <input th:field="*{codigo}" type="number" class="form-control" id="codigo" >
@@ -21,21 +20,36 @@
     <input th:field="*{categoria}" type="text" class="form-control" id="categoria" >
   </div>
   <div class="col-md-6">
-    <label for="fecha_inicio" class="form-label">fecha_inicio</label>
-    <input th:field="*{fecha_inicio}" type="email" class="form-control" id="fecha_inicio" >
+    <label for="fecha_inicio" class="form-label">fecha deinicio</label>
+    <input th:field="*{fechinicio}" type="datetime" class="form-control" id="fecha_inicio" >
   </div>
   <div class="col-md-6">
-    <label for="cantidad_horas" class="form-label">cantidad_horas</label>
-    <input th:field="*{cantidad_horas}" type="number" class="form-control" id="cantidad_horas" >
+    <label for="fecha_fin" class="form-label">fecha de cierre</label>
+    <input th:field="*{fechafin}" type="datetime" class="form-control" id="fecha_fin" >
   </div>
-   <div class="col-md-6">
-    <label for="modalidad" class="form-label">modalidad</label>
-    <input th:field="*{modalidad}" type="text" class="form-control" id="modalidad" >
+  <div class="col-md-6">
+    <label for="cantidad_horas" class="form-label">cantidad de horas</label>
+    <input th:field="*{cantH}" type="number" class="form-control" id="cantidad_horas" >
   </div>
-   <div class="col-md-6">
-    <label for="docente" class="form-label">docente</label>
-    <input th:field="*{docente}" type="text" class="form-control" id="docente" >
-  </div>
+<div class="form-group row">
+	<label for="modalidad" class="col-md-6 col-form-label">modalidad:</label>
+			<div class="col-md-7">	
+				<div class="form-check">
+					<input required="required" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="precencial"	th:field="*{modalidad}">
+					 <label class="form-check-label" for="gridRadios2">precencial</label>
+				</div>
+				<div class="form-check disabled">
+					<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="virtual" th:field="*{modalidad}"> 
+					<label class="form-check-label" for="gridRadios3"> virtual	</label>
+				</div>
+			</div>
+</div>
+<div class="form-group row">
+	<label for="docente" class="col-md-6 col-form-label">docente:</label>
+	<select id="docente" th:field="*{docente.legajo}">
+		<option th:each="docte:${docentes}" th:value="${docte.legajo}" th:text="${docte.apellido}" th:selected="false"/>
+	 </select>
+</div>
 
   <div class="col-12">
     <button type="submit" class="btn btn-primary">enviar</button>
