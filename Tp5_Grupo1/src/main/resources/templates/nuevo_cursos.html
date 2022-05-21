@@ -21,11 +21,11 @@
   </div>
   <div class="col-md-6">
     <label for="fecha_inicio" class="form-label">fecha deinicio</label>
-    <input th:field="*{fechinicio}" type="datetime" class="form-control" id="fecha_inicio" >
+    <input th:field="*{fechinicio}" type="date" class="form-control" id="fecha_inicio" th:value="*{fechinicio}">
   </div>
   <div class="col-md-6">
     <label for="fecha_fin" class="form-label">fecha de cierre</label>
-    <input th:field="*{fechafin}" type="datetime" class="form-control" id="fecha_fin" >
+    <input th:field="*{fechafin}" type="date" class="form-control" id="fecha_fin" th:value="*{fechafin}">
   </div>
   <div class="col-md-6">
     <label for="cantidad_horas" class="form-label">cantidad de horas</label>

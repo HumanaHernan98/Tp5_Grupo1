@@ -32,8 +32,8 @@
                 <td th:text="${curso.codigo}"></td>
                 <td th:text="${curso.titulo}"> </td>
                 <td th:text="${curso.categoria}"></td>
-                <td th:text="${curso.fechinicio}"></td>
-                <td th:text="${curso.fechafin}"></td>
+                <td th:text="${#temporals.format(curso.fechinicio, 'dd-MM-yyyy')}"></td>
+                <td th:text="${#temporals.format(curso.fechafin, 'dd-MM-yyyy')}"></td>
                 <td th:text="${curso.cantH}"></td>
                 <td th:text="${curso.modalidad}"></td>
                 <td th:text="${curso.docente.apellido}"></td>

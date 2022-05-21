@@ -2,13 +2,17 @@ package model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Curso {
 
 	private int codigo;
 	private String titulo;
 	private String categoria;
-	private String fechinicio;
-	private String fechafin;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate fechinicio;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate fechafin;
 	private int cantH;
 	private String modalidad;
 	private Docente docente;
@@ -25,7 +29,7 @@ public class Curso {
 	 * @param modalidad
 	 * @param docente
 	 */
-	public Curso(int codigo, String titulo, String categoria, String fechinicio, String fechafin, int cantH,
+	public Curso(int codigo, String titulo, String categoria, LocalDate fechinicio, LocalDate fechafin, int cantH,
 			String modalidad, Docente docente) {
 		super();
 		this.codigo = codigo;
@@ -76,25 +80,25 @@ public class Curso {
 	/**
 	 * @return the fechinicio
 	 */
-	public String getFechinicio() {
+	public LocalDate getFechinicio() {
 		return fechinicio;
 	}
 	/**
 	 * @param fechinicio the fechinicio to set
 	 */
-	public void setFechinicio(String fechinicio) {
+	public void setFechinicio(LocalDate fechinicio) {
 		this.fechinicio = fechinicio;
 	}
 	/**
 	 * @return the fechafin
 	 */
-	public String getFechafin() {
+	public LocalDate getFechafin() {
 		return fechafin;
 	}
 	/**
 	 * @param fechafin the fechafin to set
 	 */
-	public void setFechafin(String fechafin) {
+	public void setFechafin(LocalDate fechafin) {
 		this.fechafin = fechafin;
 	}
 	/**
