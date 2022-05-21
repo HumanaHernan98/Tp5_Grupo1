@@ -4,9 +4,8 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<-- //dni_nombre_apellido_email_telefono -->
 <body>
-<form th:action="@{/formulario/guardar}" th:object="${persona}" method="post" class="row g-3" >
+<form th:action="@{/alumno/guardar}" th:object="${alumno}" method="post" class="row g-3" >
   <div class="col-md-6">
     <label for="dni" class="form-label">dni</label>
     <input th:field="*{dni}" type="number" class="form-control" id="dni" >
