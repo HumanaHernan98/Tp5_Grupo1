@@ -41,6 +41,8 @@ public class Curso {
 		this.modalidad = modalidad;
 		this.docente = docente;
 	}
+	
+	
 	/**
 	 * @return the codigo
 	 */

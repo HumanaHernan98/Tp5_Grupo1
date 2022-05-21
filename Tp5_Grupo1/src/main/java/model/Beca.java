@@ -1,15 +1,23 @@
 package model;
 
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Beca {
 	private int codigo;
-	private String curso, fechI, fechC;
-	private boolean estado;
+	private Curso curso;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate fechI;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate fechC;
+	private String estado;
 
 	public Beca() {
 
 	}
 
-	public Beca(int codigo, String curso, String fechI, String fechC, boolean estado) {
+	public Beca(int codigo, Curso curso, LocalDate fechI, LocalDate fechC, String estado) {
 		super();
 		this.codigo = codigo;
 		this.curso = curso;
@@ -26,36 +34,44 @@ public class Beca {
 		this.codigo = codigo;
 	}
 
-	public String getCurso() {
+	public Curso getCurso() {
 		return curso;
 	}
 
-	public void setCurso(String curso) {
+	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
 
-	public String getFechI() {
+	public LocalDate getFechI() {
 		return fechI;
 	}
 
-	public void setFechI(String fechI) {
+	public void setFechI(LocalDate fechI) {
 		this.fechI = fechI;
 	}
 
-	public String getFechC() {
+	public LocalDate getFechC() {
 		return fechC;
 	}
 
-	public void setFechC(String fechC) {
+	public void setFechC(LocalDate fechC) {
 		this.fechC = fechC;
 	}
 
-	public boolean isEstado() {
+	/**
+	 * @return the estado
+	 */
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(boolean estado) {
+	/**
+	 * @param estado the estado to set
+	 */
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	
 
 }

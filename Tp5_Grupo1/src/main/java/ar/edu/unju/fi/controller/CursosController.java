@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import ar.edu.unju.fi.util.ListaCursos;
 import model.Curso;
 import model.Docente;
 
@@ -17,7 +18,7 @@ import model.Docente;
 @Controller
 public class CursosController {
 	Curso nuevcurso = new Curso();
-	List<Curso> listaCurs = new ArrayList<>();
+	ListaCursos listCursos = new ListaCursos();
 	//usado a modo de ejemplo para la seleccion de un docente en el formulario
 	public List<Docente> getDocentes(){
 		List<Docente> listaPersona = new ArrayList<Docente>();
@@ -36,7 +37,7 @@ public class CursosController {
 	//devolucion a la solicitud de mostrar las listas de cursos en una tabla
 	@GetMapping("/curso/lista")
 	public String getListaCurso(Model model){
-		model.addAttribute("cursos",listaCurs);
+		model.addAttribute("cursos",listCursos.getListaCursos());
 		return ("lista_cursos");
 	}
 	
@@ -51,9 +52,9 @@ public class CursosController {
 		}
 		//añadimos el objeto recibido a la lista de cursos
 		nuevoCurso.setDocente(unDocte);
-		listaCurs.add(nuevoCurso);
-		model.addAttribute("cursos",listaCurs);
+		listCursos.agregarCurso(nuevoCurso);
+		model.addAttribute("cursos",listCursos.getListaCursos());
 		//mostramos la lista con todos los cursos
-		return ("lista_cursos");	
+		return ("lista_cursos");		
 	}
 }
