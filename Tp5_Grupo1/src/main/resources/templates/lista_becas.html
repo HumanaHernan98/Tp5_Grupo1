@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org">
+<head th:insert="/layouts/head::head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <div>
+         <section>
+          <h1>Cursos lista</h1>
+          <div class="d-flex justify-content-md-end mb-3">
+             <button type="submit" class="btn btn-primary" >Nuevo</button>
+           </div>
+          <table class="table">      
+            <tbody>
+              <thead>
+                <tr>
+                <th>codigo</th>
+                <th>curso</th>
+                <th>fecha de inicio</th>
+                <th>fecha de cierre</th>
+                <th>estado</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr th:each="beca:${becas}">
+                <td th:text="${beca.codigo}"></td>
+                <td th:text="${beca.curso.titulo}"></td>
+                <td th:text="${#temporals.format(beca.fechI, 'dd-MM-yyyy')}"></td>
+                <td th:text="${#temporals.format(beca.fechC, 'dd-MM-yyyy')}"></td> 
+                <td th:text="${beca.estado}"></td>
+                <td>
+                  <button type="button" class="btn btn-warning">Editar</button>
+                   <button type="button" class="btn btn-danger">Eliminar</button>
+              	</td>
+               </tr> 
+            </tbody>
+          </table>
+      
+         </section>
+       </div>
+</body>
+</html>
