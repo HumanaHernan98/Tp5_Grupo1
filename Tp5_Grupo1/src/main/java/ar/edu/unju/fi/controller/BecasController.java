@@ -56,4 +56,8 @@ public class BecasController {
 			//mostramos la lista con todos los cursos
 			return ("lista_becas");		
 		}
+		@GetMapping("/ListaB")
+		public String getIndexPage(Model model) {
+			return "lista_becas";
+		}
 }

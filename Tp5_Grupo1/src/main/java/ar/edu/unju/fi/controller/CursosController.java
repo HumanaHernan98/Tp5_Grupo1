@@ -34,6 +34,7 @@ public class CursosController {
 		return("nuevo_cursos");
 	}
 	
+	
 	//devolucion a la solicitud de mostrar las listas de cursos en una tabla
 	@GetMapping("/curso/lista")
 	public String getListaCurso(Model model){
@@ -56,5 +57,9 @@ public class CursosController {
 		model.addAttribute("cursos",listCursos.getListaCursos());
 		//mostramos la lista con todos los cursos
 		return ("lista_cursos");		
+	}
+	@GetMapping("/ListaCursos")
+	public String getIndexPage(Model model) {
+		return "lista_cursos";
 	}
 }
