@@ -21,6 +21,10 @@ public class AlumnoController {
 		return("nuevo_alumnos");
 	}
 	
+		@GetMapping("/ListaA")
+		public String getIndexPage(Model model) {
+			return "lista_alumno";
+		}
 	@PostMapping("/alumno/guardar")
 	public String guardarAlumno(@ModelAttribute("alumno")Alumno unAlumno,Model model) {
 		listaAlumno.add(unAlumno);

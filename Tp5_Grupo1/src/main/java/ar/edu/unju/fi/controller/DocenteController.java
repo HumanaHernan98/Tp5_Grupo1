@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DocenteController {
 	@GetMapping("/ListaD")
 	public String getIndexPage(Model model) {
-		return "lista_docente";
+		return "lista_docentes";
 	}
 }
