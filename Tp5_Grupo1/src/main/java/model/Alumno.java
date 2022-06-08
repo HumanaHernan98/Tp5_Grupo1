@@ -1,14 +1,29 @@
 package model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Alumno {
-	private int dni, telefono;
-	private String nombre, apellido, email;
+	@Min(value=1000000,message = "El DNI debe ser mayor a 1.000.000")
+	private long dni;
+	@Min(value=100000,message = "El telefono debe ser mayor a 1.00.000")
+	private int telefono;
+	@Size(min = 3,max = 100,message = "el nombre debe tener entre 3 a 100 caracteres")
+	@NotEmpty(message = "El nombre del alumno no puede estar en blanco")
+	private String nombre;
+	@NotBlank(message = "El apellido no puede estar en blanco")
+	private String apellido; 
+	@NotEmpty@Email
+	private String email;
 
 	public Alumno() {
 
 	}
 
-	public Alumno(int dni, int telefono, String nombre, String apellido, String email) {
+	public Alumno(long dni, int telefono, String nombre, String apellido, String email) {
 		super();
 		this.dni = dni;
 		this.telefono = telefono;
@@ -17,11 +32,11 @@ public class Alumno {
 		this.email = email;
 	}
 
-	public int getDni() {
+	public long getDni() {
 		return dni;
 	}
 
-	public void setDni(int dni) {
+	public void setDni(long dni) {
 		this.dni = dni;
 	}
 
