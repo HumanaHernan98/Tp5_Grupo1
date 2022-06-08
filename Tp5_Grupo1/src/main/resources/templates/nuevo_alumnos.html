@@ -9,22 +9,27 @@
   <div class="col-md-6">
     <label for="dni" class="form-label">dni</label>
     <input th:field="*{dni}" type="number" class="form-control" id="dni" >
+  	<div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
   </div>
   <div class="col-md-6">
     <label for="nombre" class="form-label">nombre</label>
     <input th:field="*{nombre}" type="text" class="form-control" id="nombre" >
+    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
   </div>
   <div class="col-md-6">
     <label for="apellido" class="form-label">apellido</label>
     <input th:field="*{apellido}" type="text" class="form-control" id="apellido" >
+    <div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
   </div>
   <div class="col-md-6">
     <label for="email" class="form-label">Email</label>
     <input th:field="*{email}" type="email" class="form-control" id="email" >
+    <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
   </div>
   <div class="col-md-6">
     <label for="telefono" class="form-label">telefono</label>
     <input th:field="*{telefono}" type="number" class="form-control" id="telefono" >
+    
   </div>
 
   <div class="col-12">

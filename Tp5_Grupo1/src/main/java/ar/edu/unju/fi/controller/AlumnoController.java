@@ -7,10 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import model.Alumno;
 
@@ -35,10 +37,18 @@ public class AlumnoController {
 	}
 
 	@PostMapping("/alumno/guardar")
-	public String guardarAlumno(@ModelAttribute("alumno") Alumno unAlumno, Model model) {
-		listaAlumno.add(unAlumno);
-		model.addAttribute("alumnos", listaAlumno);
-		logger.info("REQUEST: /alumno/guardar - METHOD: guardarAlumno() - INFO: Se agrego un nuevo objeto alumno a la lista de alumnos, se devuelve el la tabla actualizada");
-		return ("lista_alumno");
+	public ModelAndView guardarAlumno(@Validated @ModelAttribute("alumno") Alumno unnAlumno,BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			ModelAndView mav = new ModelAndView("nuevo_alumnos");
+			mav.addObject("alumno", unnAlumno);
+			return mav;
+		}
+		ModelAndView mav = new ModelAndView("lista_alumno");
+		if (listaAlumno.add(unnAlumno)==true) {
+			logger.info("REQUEST: /alumno/guardar - METHOD: guardarAlumno() - INFO: Se agrego un nuevo objeto alumno a la lista de alumnos, se devuelve el la tabla actualizada");
+		}
+		mav.addObject("alumnos",listaAlumno);
+		
+		return mav;
 	}
 }
