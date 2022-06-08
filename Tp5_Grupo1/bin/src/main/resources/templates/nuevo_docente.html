@@ -4,7 +4,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form th:action="@{/formulario/guardar}" th:object="${persona}" method="post" class="row g-3" >
+<form th:action="@{/docente/guardar}" th:object="${docente}" method="post" class="row g-3" >
   <div class="col-md-6">
     <label for="legajo" class="form-label">legajo</label>
     <input th:field="*{legajo}" type="number" class="form-control" id="legajo" >
