@@ -5,31 +5,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-<header th:insert="/layouts/header::header"> </header>
-    <div>
+   <div>
          <section>
-          <h1>Estado de solicitud de Becas</h1>
+          <h1>Cursos becas</h1>
           <div class="d-flex justify-content-md-end mb-3">
-             <a  id="" class="btn btn-primary" th:href="@{/becas}">Nuevo</a>
+             <button type="submit" class="btn btn-primary" >Nuevo</button>
            </div>
           <table class="table">      
             <tbody>
               <thead>
                 <tr>
-                <th>codigo</th>
-                <th>curso</th>
-                <th>fecha de inicio</th>
-                <th>fecha de cierre</th>
-                <th>estado</th>
+                <th>Dni</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>email</th>
+                <th>telefono</th>
                 </tr>
             </thead>
             <tbody>
-              <tr th:each="beca:${becas}">
-                <td th:text="${beca.codigo}"></td>
-                <td th:text="${beca.curso.titulo}"></td>
-                <td th:text="${#temporals.format(beca.fechI, 'dd-MM-yyyy')}"></td>
-                <td th:text="${#temporals.format(beca.fechC, 'dd-MM-yyyy')}"></td> 
-                <td th:text="${beca.estado}"></td>
+              <tr th:each="alumno:${alumnos}">
+                <td th:text="${alumno.dni}"></td>
+                <td th:text="${alumno.nombre}"></td>
+                <td th:text="${alumno.apellido}"></td>
+                <td th:text="${alumno.email}"></td> 
+                <td th:text="${alumno.telefono}"></td>
                 <td>
                   <button type="button" class="btn btn-warning">Editar</button>
                    <button type="button" class="btn btn-danger">Eliminar</button>

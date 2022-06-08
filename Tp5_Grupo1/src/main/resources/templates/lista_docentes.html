@@ -6,76 +6,38 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
   <body>
-      
+  <header th:insert="/layouts/header::header"> </header>
     <div>
          <section>
           <h1>Plantel Docente</h1>
           <div class="d-flex justify-content-md-end mb-3">
-             <button type="submit" class="btn btn-primary">Nuevo</button>
+          <a  id="" class="btn btn-primary" th:href="@{/docente}">Nuevo</a>
            </div>
-           
           <table class="table">      
             <tbody>
               <thead>
                 <tr>
                 <th>Legajo</th>
-                <th>Apellidos</th>
-                <th>Nombres</th>
-                <th>E-mail</th>
-                <th>Telefono</th>
-                <th>Opciones</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>email</th>
+                <th>telefono</th>
                 </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>100</td>
-                <td>Sanchez</td>
-                <td>Alejandro</td>
-                <td>asanchez@gmail.com</td>
-                <td>3884789562</td>
+              <tr th:each="docente:${docentes}">
+                <td th:text="${docente.legajo}"></td>
+                <td th:text="${docente.nombre}"></td>
+                <td th:text="${docente.apellido}"></td>
+                <td th:text="${docente.email}"></td> 
+                <td th:text="${docente.telefono}"></td>
                 <td>
                   <button type="button" class="btn btn-warning">Editar</button>
                    <button type="button" class="btn btn-danger">Eliminar</button>
-              </td>
-      
-              </tr>
-              <tr>
-                <td>101</td>
-                <td>Lamas</td>
-                <td>Maria</td>
-                <td>mlamas@gmail.com</td>
-                <td>3884895210</td>
-                <td>
-                   <button type="button" class="btn btn-warning">Editar</button>
-                   <button type="button" class="btn btn-danger">Eliminar</button>
-      
-                </td>
-              </tr>
-              <tr>
-                  <td>102</td>
-                  <td>Perez</td>
-                  <td>Martina Adriana</td>
-                  <td>mperez@gmail.com</td>
-                  <td>3884120130</td>
-                  <td>
-                   <button type="button" class="btn btn-warning">Editar</button>
-                   <button type="button" class="btn btn-danger">Eliminar</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>103</td>
-                  <td>Mirinda</td>
-                  <td>Pedro Antonio</td>
-                  <td>pmirinda@gmail.com</td>
-                  <td>3884111999</td>
-                  <td>
-                    <button type="button" class="btn btn-warning">Editar</button>
-                   <button type="button" class="btn btn-danger">Eliminar</button>
-                  </td>
-                </tr> 
+              	</td>
+               </tr> 
             </tbody>
-          </table>
-      
+          </table>      
          </section>
        </div>
   </body>
