@@ -2,20 +2,31 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Curso {
 
+	@Size(min = 3,max = 5,message = "el código debe tener entre 3 a 5 caracteres")
 	private int codigo;
+	@NotEmpty(message = "El titulo no puede estar en blanco")
 	private String titulo;
+	@NotEmpty(message = "La categoria no puede estar en blanco")
 	private String categoria;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate fechinicio;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate fechafin;
+	@Min(value=0,message = "La cantidad de horas debe ser mayor a 0")
 	private int cantH;
+	@NotEmpty(message = "La modalidad no puede estar en blanco")
 	private String modalidad;
+	@NotEmpty(message = "El docente no puede estar en blanco")
 	private Docente docente;
+	@NotEmpty(message = "El curso no puede estar en blanco")
 	public Curso() {
 
 	}
