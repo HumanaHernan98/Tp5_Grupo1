@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:insert="/layouts/head::head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form th:action="@{/curso/guardar}" th:object="${curso}" method="post" class="row g-3" >
+  <div class="col-md-6">
+    <label for="codigo" class="form-label">codigo</label>
+    <input th:field="*{codigo}" type="number" class="form-control" id="codigo" >
+  </div>
+  <div class="col-md-6">
+    <label for="titulo" class="form-label">titulo</label>
+    <input th:field="*{titulo}" type="text" class="form-control" id="titulo" >
+  </div>
+  <div class="col-md-6">
+    <label for="categoria" class="form-label">categoria</label>
+    <input th:field="*{categoria}" type="text" class="form-control" id="categoria" >
+  </div>
+  <div class="col-md-6">
+    <label for="fecha_inicio" class="form-label">fecha deinicio</label>
+    <input th:field="*{fechinicio}" type="date" class="form-control" id="fecha_inicio" th:value="*{fechinicio}">
+  </div>
+  <div class="col-md-6">
+    <label for="fecha_fin" class="form-label">fecha de cierre</label>
+    <input th:field="*{fechafin}" type="date" class="form-control" id="fecha_fin" th:value="*{fechafin}">
+  </div>
+  <div class="col-md-6">
+    <label for="cantidad_horas" class="form-label">cantidad de horas</label>
+    <input th:field="*{cantH}" type="number" class="form-control" id="cantidad_horas" >
+  </div>
+<div class="form-group row">
+	<label for="modalidad" class="col-md-6 col-form-label">modalidad:</label>
+			<div class="col-md-7">	
+				<div class="form-check">
+					<input required="required" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="precencial"	th:field="*{modalidad}">
+					 <label class="form-check-label" for="gridRadios2">precencial</label>
+				</div>
+				<div class="form-check disabled">
+					<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="virtual" th:field="*{modalidad}"> 
+					<label class="form-check-label" for="gridRadios3"> virtual	</label>
+				</div>
+			</div>
+</div>
+<div class="form-group row">
+	<label for="docente" class="col-md-6 col-form-label">docente:</label>
+	<select id="docente" th:field="*{docente.legajo}">
+		<option th:each="docte:${docentes}" th:value="${docte.legajo}" th:text="${docte.apellido}" th:selected="false"/>
+	 </select>
+</div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">enviar</button>
+  </div>
+</form>
+
+</body>
+</html>

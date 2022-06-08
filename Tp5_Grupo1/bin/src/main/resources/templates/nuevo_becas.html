@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:insert="/layouts/head::head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/becas/guardar}" th:object="${beca}" method="post" class="row g-3" >
+  <div class="col-md-6">
+    <label for="codigo" class="form-label">codigo</label>
+    <input th:field="*{codigo}" type="number" class="form-control" id="codigo" >
+  </div>
+  <div class="form-group row">
+	<label for="curso" class="col-md-6 col-form-label">curso:</label>
+	<select id="curso" th:field="*{curso.codigo}">
+		<option th:each="cur:${cursos}" th:value="${cur.codigo}" th:text="${cur.titulo}" th:selected="false"/>
+	 </select>
+</div>
+  <div class="col-md-6">
+    <label for="fecha_inicio" class="form-label">fecha de inicio</label>
+    <input th:field="*{fechI}" type="date" class="form-control" id="fecha_inicio" th:value="*{fechI}">
+  </div>
+  <div class="col-md-6">
+    <label for="fecha_cierre" class="fecha_cierre">fecha de cierre</label>
+    <input th:field="*{fechC}" type="date" class="form-control" id="fecha_cierre" th:value="*{fechC}">
+  </div>
+<div class="form-group row">
+	<label for="estado" class="col-md-6 col-form-label">estado de solicitud:</label>
+			<div class="col-md-7">	
+				<div class="form-check">
+					<input required="required" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="aprobado"	th:field="*{estado}">
+					 <label class="form-check-label" for="gridRadios2">aprobado</label>
+				</div>
+				<div class="form-check disabled">
+					<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="desaprobado" th:field="*{estado}"> 
+					<label class="form-check-label" for="gridRadios3"> desaprobado	</label>
+				</div>
+			</div>
+</div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">enviar</button>
+  </div>
+</form>
+</body>
+</html>
