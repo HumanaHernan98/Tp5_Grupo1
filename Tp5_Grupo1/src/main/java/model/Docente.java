@@ -1,10 +1,23 @@
 package model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
+
 public class Docente {
-
-	private int legajo, telefono;
-	private String nombre, apellido, email;
-
+	@Min(value=0,message = "El telefono debe ser mayor a 0")
+	private int legajo;
+	@Min(value=100000,message = "El telefono debe ser mayor a 1.00.000")
+	private int telefono;
+	@NotEmpty(message = "El nombre del alumno no puede estar en blanco")
+	private String nombre;
+	@NotBlank(message = "El apellido no puede estar en blanco")
+	private String apellido;
+	@NotEmpty@Email
+	private String email;
+	
 	public Docente() {
 
 	}
