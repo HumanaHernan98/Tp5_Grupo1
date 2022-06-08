@@ -7,9 +7,9 @@ import javax.validation.constraints.NotEmpty;
 
 
 public class Docente {
-	@Min(value=0,message = "El telefono debe ser mayor a 0")
+	@Min(value=0,message = "El legajo debe ser mayor a 0")
 	private int legajo;
-	@Min(value=100000,message = "El telefono debe ser mayor a 1.00.000")
+	@Min(value=100000,message = "El telefono debe ser mayor a 1.000.000")
 	private int telefono;
 	@NotEmpty(message = "El nombre del alumno no puede estar en blanco")
 	private String nombre;

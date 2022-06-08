@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,8 +48,12 @@ public class BecasController {
 		return ("lista_becas");
 	}
 	//devolucion de la aplicacion al cargar un nuevo curso
+	
 		@PostMapping("/becas/guardar")
-		public String guardarCurso(@ModelAttribute("beca")Beca nuevoBeca,Model model) {
+		public String guardarCurso(@Validated @ModelAttribute("beca")Beca nuevoBeca,Model model,BindingResult bindingResult) {
+			
+			
+			
 			Curso unCur = new Curso();
 			//asignamos los atributos del docente al atributo decente  del objeto curso
 			for(Curso t: this.getCursos())
@@ -60,7 +66,9 @@ public class BecasController {
 			model.addAttribute("becas",listaBecas);
 			logger.info("REQUEST: /becas/guardar - METHOD: guardarBecas() - INFO: Se agrego un nuevo objeto becas a la lista de becas, se devuelve el la tabla actualizada");
 			//mostramos la lista con todos los cursos
-			return ("lista_becas");		
+			
+			return ("lista_becas");	
+			
 		}
 		@GetMapping("/ListaB")
 		public String getIndexPage(Model model) {
