@@ -7,9 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
 
 import model.Docente;
 
@@ -31,12 +35,20 @@ public class DocenteController {
 		logger.info("REQUEST: /curso - METHOD: getFormDocente() - INFO: Se solicita cargar un nuevo objeto docente, se devuelve el formulario");
 		return ("nuevo_docente");
 	}
-	
+
 	@PostMapping("/docente/guardar")
-	public String guardarDocente(@ModelAttribute("docente")Docente unDocente,Model model) {
-		listaDocente.add(unDocente);
-		model.addAttribute("docentes", listaDocente);
-		logger.info("REQUEST: /docente/guardar - METHOD: guardardocente() - INFO: Se agrego un nuevo objeto docente a la lista de docente, se devuelve el la tabla actualizada");		return ("lista_docentes");
+	public ModelAndView guardarDocente(@Validated @ModelAttribute("docente")Docente unDocente, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			ModelAndView mav=new ModelAndView("nuevo_docente");
+			mav.addObject("docente", unDocente);
+			return mav;
+		}
+		ModelAndView mav = new ModelAndView("lista_docentes");
+		if (listaDocente.add(unDocente)==true) {
+			logger.info("REQUEST: /alumno/guardar - METHOD: guardarAlumno() - INFO: Se agrego un nuevo objeto docente a la lista de docentes, se devuelve el la tabla actualizada");
+		}
+		mav.addObject("docentes", listaDocente);
+		return mav;
 	}
 	
 }
