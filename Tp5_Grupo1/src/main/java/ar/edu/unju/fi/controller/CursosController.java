@@ -7,9 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.util.ListaCursos;
 import model.Curso;
@@ -40,7 +43,7 @@ public class CursosController {
 	
 	
 	//devolucion a la solicitud de mostrar las listas de cursos en una tabla
-	@GetMapping("/curso/lista")
+	@GetMapping("/ListaCursos")
 	public String getListaCurso(Model model){
 		model.addAttribute("cursos",listCursos.getListaCursos());
 		logger.info("REQUEST: /ListaA - METHOD: getListaCursos() - INFO: Se solicita mostrar en contenido de la lista de cursos");
@@ -49,23 +52,26 @@ public class CursosController {
 	
 	//devolucion de la aplicacion al cargar un nuevo curso
 	@PostMapping("/curso/guardar")
-	public String guardarCurso(@ModelAttribute("curso")Curso nuevoCurso,Model model) {
+	public ModelAndView guardarCurso(@Validated @ModelAttribute("curso")Curso nuevoCurso,BindingResult bindingResult) {
 		Docente unDocte = new Docente();
+		if(bindingResult.hasErrors()) {
+			ModelAndView mav = new ModelAndView("nuevo_cursos");
+			mav.addObject("curso",nuevoCurso);
+			mav.addObject("docentes", this.getDocentes());
+			return mav;
+		}
 		//asignamos los atributos del docente al atributo decente  del objeto curso
 		for(Docente t: this.getDocentes())
 		{ if(t.getLegajo()==nuevoCurso.getDocente().getLegajo()) {
 			unDocte = t;}
 		}
 		//añadimos el objeto recibido a la lista de cursos
+		ModelAndView mav = new ModelAndView("lista_cursos");
 		nuevoCurso.setDocente(unDocte);
 		listCursos.agregarCurso(nuevoCurso);
-		model.addAttribute("cursos",listCursos.getListaCursos());
+		mav.addObject("cursos",listCursos.getListaCursos());
 		logger.info("REQUEST: /curso/guardar - METHOD: guardarCurso() - INFO: Se agrego un nuevo objeto curso a la lista de cursos, se devuelve el la tabla actualizada");
 		//mostramos la lista con todos los cursos
-		return ("lista_cursos");		
-	}
-	@GetMapping("/ListaCursos")
-	public String getIndexPage(Model model) {
-		return "lista_cursos";
+		return mav;		
 	}
 }

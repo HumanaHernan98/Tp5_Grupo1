@@ -2,15 +2,16 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Beca {
-	@Size(min = 3,max = 5,message = "el código debe tener entre 3 a 5 caracteres")
+	@Min(value=100,message = "El codigo debe ser mayor a 100")
 	private int codigo;
-	@NotEmpty(message = "El curso no puede estar en blanco")
+	
 	private Curso curso;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate fechI;
