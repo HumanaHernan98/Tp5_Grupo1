@@ -6,6 +6,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Alumno {
 	@Min(value=1000000,message = "El DNI debe ser mayor a 1.000.000")
 	private long dni;

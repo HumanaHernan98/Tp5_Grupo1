@@ -7,7 +7,8 @@ import javax.validation.constraints.NotEmpty;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
-
+import org.springframework.stereotype.Component;
+@Component
 public class Beca {
 	@Min(value=100,message = "El codigo debe ser mayor a 100")
 	private int codigo;

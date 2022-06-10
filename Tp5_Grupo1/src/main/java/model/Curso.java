@@ -6,7 +6,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
+import org.springframework.stereotype.Component;
+@Component
 public class Curso {
 
 	@Min(value=100,message = "El codigo debe ser mayor a 100")
