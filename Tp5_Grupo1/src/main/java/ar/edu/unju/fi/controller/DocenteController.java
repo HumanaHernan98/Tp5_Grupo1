@@ -30,9 +30,9 @@ public class DocenteController {
 	public String getIndexPage(Model model) {
 		logger.info("REQUEST: /ListaD - METHOD: getListaDocentes() - INFO: Se solicita mostrar en contenido de la lista de docentes");
 		return "lista_docentes";
-	}
+	} 
 	
-	@GetMapping("/docente")
+	@GetMapping("/docente") 
 	public String getFormDocente(Model model) {
 		model.addAttribute("docente", unDocente);
 		logger.info("REQUEST: /curso - METHOD: getFormDocente() - INFO: Se solicita cargar un nuevo objeto docente, se devuelve el formulario");
