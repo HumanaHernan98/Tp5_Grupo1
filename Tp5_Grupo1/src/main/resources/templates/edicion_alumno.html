@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:insert="/layouts/head::head">
+		<meta charset="UTF-8">
+		<title>Edición Alumno</title>
+	</head>
+	
+	<body>
+		<header th:replace="/layouts/header :: header"></header>
+		<div class="container col-4">
+			<br>
+			<p class="h4">Edición Alumno</p>
+			<br>
+	
+			<form th:action="@{/modificar}" method="POST" th:object="${alumno}">
+				<div class="mb-3">
+					<input type="hidden" th:field="*{dni}"/>
+					<label for="dniId" class="form-label">DNI</label> 
+					<input  th:value="${dni}" type="number" class="form-control" id="dniId" disabled="disabled">
+					<!-- mostrar el mensaje asociado con la validación de dni  -->
+					<!-- <div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div> -->
+				</div>
+				<div class="mb-3">
+					<label for="nombresId" class="form-label">Nombres</label> 
+					<input  th:field="*{nombre}" type="text" class="form-control" id="nombresId">
+					<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="apellidosId" class="form-label">Apellidos</label> 
+					<input  th:field="*{apellido}" type="text" class="form-control" id="apellidosId" placeholder="Ingrese apellidos">
+					<div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="emailId" class="form-label">E-mail</label> 
+					<input th:field="*{email}" type="email" class="form-control" id="emailId" placeholder="Ingrese e-mail">
+					<div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="telefonoId" class="form-label">Teléfono</label> 
+					<input th:field="*{telefono}" type="text" class="form-control" id="telefonoId" placeholder="Ingrese telefono">
+					<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+				</div>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button class="btn btn-primary me-md-2" type="submit">Confirmar</button>
+					 <a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
+	  				
+				</div>
+			</form>
+		</div>
+
+	
+	</body>
+</html>
