@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head  th:insert="/layout/head::head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="/layout/header::header"></header>
+	<br>
+	<p class="h4">Edicion del Docente</p>
+	<br>
+<form th:action="@{/modificar}" th:object="${docente}" method="post">
+  <div class="mb-3">
+    <div class="mb-3">
+    <input th:field="*{legajo}"  type="hidden">
+    <label for="legajo" class="form-label">LEGAJO</label>
+    <!-- th:value toma el valor del atributo  -->
+    <!-- no puede editarlo en disabled -->
+    <input  th:value="${legajo}" type="number" class="form-control" id="legajo" disabled="disabled">
+  </div>
+    <label for="telefono" class="form-label">TELEFONO</label>
+    <input th:field="*{telefono}"  type="text" class="form-control" id="telefono" >
+  </div>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">NOMBRE</label>
+    <input th:field="*{nombre}"   type="text" class="form-control" id="nombre">
+  </div>
+   <div class="mb-3">
+    <label for="apellido" class="form-label">APELLIDO</label>
+    <input th:field="*{apellido}"   type="text" class="form-control" id="apellido">
+  </div>
+ <div class="mb-3">
+    <label for="email" class="form-label">E-MAIL</label>
+    <input th:field="*{email}"   type="text" class="form-control" id="email">
+  </div>
+  <button type="submit" class="btn btn-primary">REGISTRAR</button>
+</form>
+</body>
+</html>

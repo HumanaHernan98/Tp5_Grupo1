@@ -17,11 +17,11 @@
     <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
   </div>
   <div class="col-md-6">
-    <label for="apellido" class="form-label">apellido</label>
-    <input th:field="*{apellido}" type="text" class="form-control" id="apellido" >
+    <label for="apellido" class="form-label">apellido </label >
+    <input th:field="*{apellido}" type="text" class="form-control" id="apellido" required >
     <div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6"> 
     <label for="email" class="form-label">Email</label>
     <input th:field="*{email}" type="email" class="form-control" id="email" >
     <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>

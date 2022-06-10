@@ -32,8 +32,10 @@
                 <td th:text="${docente.email}"></td> 
                 <td th:text="${docente.telefono}"></td>
                 <td>
-                  <button type="button" class="btn btn-warning">Editar</button>
-                   <button type="button" class="btn btn-danger">Eliminar</button>
+                <!-- identificar de docente, legajo -->
+        
+                    <a th:href="@{/editar/}+${docente.legajo}" id="editarDocente" class="btn btn-warning">Editar</a>
+				 <a th:href="@{/eliminar/}+${docente.legajo}" id="eliminarDocente" class="btn btn-danger">Eliminar</a>
               	</td>
                </tr> 
             </tbody>
