@@ -13,15 +13,9 @@ public class ListaBecas {
 	
 	public ListaBecas() {
 		// TODO Auto-generated constructor stub
+		listaBecas = new ArrayList<Beca>();
 	}
 
-	/**
-	 * @param listaBecas
-	 */
-	public ListaBecas(ArrayList<Beca> listaBecas) {
-		super();
-		this.listaBecas = listaBecas;
-	}
 
 	/**
 	 * @return the listaBecas

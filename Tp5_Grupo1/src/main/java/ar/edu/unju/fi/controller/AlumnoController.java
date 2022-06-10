@@ -18,6 +18,7 @@ import model.Alumno;
 
 @Controller
 public class AlumnoController {
+	
 
 	Logger logger = LoggerFactory.getLogger(AlumnoController.class);
 	List<Alumno> listaAlumno = new ArrayList<>();

@@ -1,30 +1,34 @@
 package ar.edu.unju.fi.util;
 
+
 import java.util.ArrayList;
-import java.util.List;
+
+import org.springframework.stereotype.Component;
 
 import model.Curso;
-
+@Component
 public class ListaCursos {
-	private List<Curso> listaCursos = new ArrayList<>();
+	private ArrayList<Curso> listaCursos;
 	
 	public ListaCursos() {
 		// TODO Auto-generated constructor stub
+		listaCursos = new ArrayList<>();
 	}
 
 	/**
 	 * @return the listaCursos
 	 */
-	public List<Curso> getListaCursos() {
+	public ArrayList<Curso> getListaCursos() {
 		return listaCursos;
 	}
 
 	/**
 	 * @param listaCursos the listaCursos to set
 	 */
-	public void agregarCurso(Curso curso) {
-		listaCursos.add(curso);
+	public void setListaCursos(ArrayList<Curso> listaCursos) {
+		this.listaCursos = listaCursos;
 	}
-	
+
+
 	
 }
