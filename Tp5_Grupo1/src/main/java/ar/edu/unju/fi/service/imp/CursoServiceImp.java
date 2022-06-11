@@ -1,51 +1,57 @@
 package ar.edu.unju.fi.service.imp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.sun.accessibility.internal.resources.accessibility;
+
 import ar.edu.unju.fi.service.ICursoService;
 import ar.edu.unju.fi.util.ListaCursos;
 import model.Curso;
 
 public class CursoServiceImp implements ICursoService {
-
+	@Autowired//permite inyectar unas dependencias con otras dentro de Spring
+	private ListaCursos listaCurso;
 	@Override
 	public Curso getCurso() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Curso();
 	}
 
 	@Override
 	public boolean guardarCurso(Curso nuevoCurso) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean respuesta = listaCurso.getListaCursos().add(nuevoCurso);
+		return respuesta;
 	}
 
 	@Override
-	public void ModificarAlumnos(Curso nuevoCurso) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void eliminarCandidato(int codigo) {
+	public void ModificarCurso(Curso nuevoCurso) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public ListaCursos getListaCursos() {
+	public void eliminarCurso(int codigo) {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 	@Override
-	public void asignarDocente() {
+	public ListaCursos getListaCurso() {
+		// TODO Auto-generated method stub
+		return listaCurso;//retorna el objeto que accede a la lista de cursos
+	}
+
+	@Override
+	public void asignarCurso() {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public Curso BuscarCurso(int codigo) {
-		// TODO Auto-generated method stub
-		return null;
+		//busca por código y retorna el objeto
+		Optional<Curso> curso = listaCurso.getListaCursos().stream().filter(a -> a.getCodigo() == codigo).findFirst();
+		return curso.get;
 	}
 
 }

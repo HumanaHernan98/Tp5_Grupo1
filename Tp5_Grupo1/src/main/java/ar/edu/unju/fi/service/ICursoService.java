@@ -7,10 +7,10 @@ public interface ICursoService {
 
 	public Curso getCurso();
 	public boolean guardarCurso(Curso nuevoCurso);
-	public void ModificarAlumnos(Curso nuevoCurso);
-	public void eliminarCandidato(int codigo);
-	public ListaCursos getListaCursos();
-	public void asignarDocente();
+	public void ModificarCurso(Curso nuevoCurso);
+	public void eliminarCurso(int codigo);
+	public ListaCursos getListaCurso();
+	public void asignarCurso();
 	public Curso BuscarCurso(int codigo);
 	
 }
