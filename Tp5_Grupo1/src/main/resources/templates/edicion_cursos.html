@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head  th:insert="/layout/head::head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="/layout/header::header"></header>
+	<br>
+	<p class="h4">Edicion del Curso</p>
+	<br>
+<form th:action="@{/modificar}" th:object="${docente}" method="post">
+  <div class="mb-3">
+    <div class="mb-3">
+    <input th:field="*{codigo}"  type="hidden">
+    <label for="codigo" class="form-label">CURSO</label>
+    <!-- th:value toma el valor del atributo  -->
+    <!-- no puede editarlo en disabled -->
+    <input  th:value="${codigo}" type="number" class="form-control" id="codigo" disabled="disabled">
+    <!--diseable : el codigo esta deshabilitado para la edicion-->
+  </div>
+    <label for="titulo" class="form-label">TITULO</label>
+    <input th:field="*{titulo}"  type="text" class="form-control" id="titulo" >
+  </div>
+  <div class="mb-3">
+    <label for="categoria" class="form-label">CATEGORIA</label>
+    <input th:field="*{categoria}"   type="text" class="form-control" id="categoria">
+  </div>
+   <div class="mb-3">
+    <label for="fechinicio" class="form-label">FECHA INICIO</label>
+    <input th:field="*{fechinicio}"   type="number" class="form-control" id="fechinicio">
+  </div>
+   <div class="mb-3">
+    <label for="fechafin" class="form-label">FECHA FIN</label>
+    <input th:field="*{fechafin}"   type="number" class="form-control" id="fechafin">
+  </div>
+ <div class="mb-3">
+    <label for="cantH" class="form-label">CANTIDAD DE HORAS</label>
+    <input th:field="*{cantH}"   type="number" class="form-control" id="cantH">
+  </div>
+  <div class="mb-3">
+    <label for="modalidad" class="form-label">MODALIDAD</label>
+    <input th:field="*{modalidad}"   type="text" class="form-control" id="modalidad">
+  </div>
+  <div class="mb-3">
+    <label for="docente" class="form-label">DOCENTE</label>
+    <input th:field="*{docente}"   type="text" class="form-control" id="docente">
+  </div>
+  <button type="submit" class="btn btn-primary">REGISTRAR</button>
+</form>
+</body>
+</html>
