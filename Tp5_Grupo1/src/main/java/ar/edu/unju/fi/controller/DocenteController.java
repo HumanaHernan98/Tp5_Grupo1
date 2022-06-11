@@ -23,7 +23,7 @@ import model.Docente;
 public class DocenteController {
 	@Autowired
 	private IDocenteService docenteService;
-	Logger logger = LoggerFactory.getLogger(CursosController.class);
+	Logger logger = LoggerFactory.getLogger(DocenteController.class);
 	List<Docente> listaDocente = new ArrayList<>();
 	Docente unDocente = new Docente();
 	@GetMapping("/ListaD")
