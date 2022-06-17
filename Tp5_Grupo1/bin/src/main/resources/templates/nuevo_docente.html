@@ -8,22 +8,27 @@
   <div class="col-md-6">
     <label for="legajo" class="form-label">legajo</label>
     <input th:field="*{legajo}" type="number" class="form-control" id="legajo" >
+ <div class="text-danger" th:if="${#fields.hasErrors('legajo')}" th:errors="*{legajo}"></div>
   </div>
   <div class="col-md-6">
     <label for="nombre" class="form-label">nombre</label>
     <input th:field="*{nombre}" type="text" class="form-control" id="nombre" >
+  <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
   </div>
   <div class="col-md-6">
     <label for="apellido" class="form-label">apellido</label>
     <input th:field="*{apellido}" type="text" class="form-control" id="apellido" >
+ <div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6" >
     <label for="email" class="form-label">Email</label>
-    <input th:field="*{email}" type="email" class="form-control" id="email" >
+    <input th:field="*{email}" type="email" class="form-control" id="email"  >
+   <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
   </div>
   <div class="col-md-6">
     <label for="telefono" class="form-label">telefono</label>
     <input th:field="*{telefono}" type="number" class="form-control" id="telefono" >
+ <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
   </div>
 
   <div class="col-12">
